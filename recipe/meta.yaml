@@ -1,5 +1,5 @@
 {% set name = "iterative_solver" %}
-{% set version = "0.10.15" %}
+{% set version = "0.10.16" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/molpro/iterative-solver/archive/refs/tags//{{ version }}.tar.gz
-  sha256: 895cddbd1b9578b7111c546cd0d5c912add96bc9d268e6da26623c8ec5d59efe
+  sha256: ae0a070adab3bdb69f5292846193ac09e9211166e8c2e0f348bf7c4bffbbb1ae
 
 build:
-  skip: True  # [win]
+  skip: true  # [win]
   script:
     - export VERSION={{ version }}
     - cmake -DCMAKE_INSTALL_PREFIX=$PREFIX  -DCMAKE_CXX_FLAGS=-fPIC  -DCMAKE_BUILD_TYPE=Release  -DDEPENDENCYMANAGER_FETCHCONTENT=OFF  -DLINEARALGEBRA_ARRAY_HDF5=OFF -DLINEARALGEBRA_ARRAY_GA=OFF  -DFORTRAN=OFF -DBUILD_SHARED_LIBS=ON -DLIBRARY_ONLY=ON -B cmake-build -S .
