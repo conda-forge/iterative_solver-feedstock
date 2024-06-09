@@ -13,7 +13,7 @@ build:
   skip: true  # [win]
   script:
     - export VERSION={{ version }}
-    - cmake -DCMAKE_INSTALL_PREFIX=$PREFIX  -DCMAKE_CXX_FLAGS=-fPIC  -DCMAKE_BUILD_TYPE=Release  -DDEPENDENCYMANAGER_FETCHCONTENT=OFF  -DLINEARALGEBRA_ARRAY_HDF5=OFF -DLINEARALGEBRA_ARRAY_GA=OFF  -DFORTRAN=OFF -DBUILD_SHARED_LIBS=ON -DLIBRARY_ONLY=ON -B cmake-build -S .
+    - cmake ${CMAKE_ARGS} -DCMAKE_INSTALL_PREFIX=$PREFIX  -DCMAKE_CXX_FLAGS=-fPIC  -DCMAKE_BUILD_TYPE=Release  -DDEPENDENCYMANAGER_FETCHCONTENT=OFF  -DLINEARALGEBRA_ARRAY_HDF5=OFF -DLINEARALGEBRA_ARRAY_GA=OFF  -DFORTRAN=OFF -DBUILD_SHARED_LIBS=ON -DLIBRARY_ONLY=ON -B cmake-build -S .
     - cmake --build cmake-build --config Release -t install
     - echo '__version__ = "'$VERSION'"' > python/iterative_solver/_version.py
     - cd python && {{ PYTHON }} -m pip install . -vvv
