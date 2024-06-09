@@ -12,8 +12,6 @@ source:
 build:
   skip: true  # [win]
   script:
-    - conda install -y -c conda-forge numpy
-    - python -c 'import numpy'
     - export VERSION={{ version }}
     - cmake -DCMAKE_INSTALL_PREFIX=$PREFIX  -DCMAKE_CXX_FLAGS=-fPIC  -DCMAKE_BUILD_TYPE=Release  -DDEPENDENCYMANAGER_FETCHCONTENT=OFF  -DLINEARALGEBRA_ARRAY_HDF5=OFF -DLINEARALGEBRA_ARRAY_GA=OFF  -DFORTRAN=OFF -DBUILD_SHARED_LIBS=ON -DLIBRARY_ONLY=ON -B cmake-build -S .
     - cmake --build cmake-build --config Release -t install
@@ -29,6 +27,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
+    - numpy  # [build_platform != target_platform]
     - cmake >=3.14
     - make
     - pip
