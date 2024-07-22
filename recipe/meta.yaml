@@ -1,5 +1,5 @@
 {% set name = "iterative_solver" %}
-{% set version = "0.10.16" %}
+{% set version = "0.10.17" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/molpro/iterative-solver/archive/refs/tags//{{ version }}.tar.gz
-  sha256: ae0a070adab3bdb69f5292846193ac09e9211166e8c2e0f348bf7c4bffbbb1ae
+  sha256: 0a019660ffb5d927e5a20cc17aa044340b3ed1b7cc3c4a75215dc0646ab19289
 
 build:
   skip: true  # [win]
