@@ -17,7 +17,7 @@ build:
     - cmake --build cmake-build --config Release -t install
     - echo '__version__ = "'$VERSION'"' > python/iterative_solver/_version.py
     - cd python && {{ PYTHON }} -m pip install . -vvv
-  number: 1
+  number: 2
 
 requirements:
   build:
