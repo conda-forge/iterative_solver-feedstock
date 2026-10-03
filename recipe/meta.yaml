@@ -1,5 +1,5 @@
 {% set name = "iterative_solver" %}
-{% set version = "0.10.23" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/molpro/iterative-solver/archive/refs/tags//{{ version }}.tar.gz
-  sha256: fdb9f7121226f14664b3706b25f6ce6809a161a00d83eabc498e8b78cbc00ba6
+  sha256: 2eee9949806e351e18a7c4b1a3257417a199e812481a47ea391d5b2d226cdee0
 
 build:
   skip: true  # [win]
@@ -17,7 +17,7 @@ build:
     - cmake --build cmake-build --config Release -t install
     - echo '__version__ = "'$VERSION'"' > python/iterative_solver/_version.py
     - cd python && {{ PYTHON }} -m pip install . -vvv
-  number: 2
+  number: 0
 
 requirements:
   build:
